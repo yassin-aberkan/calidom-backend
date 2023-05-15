@@ -1,0 +1,114 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+    <changeSet id="create_user_table" author="yassin.aberkan">
+        <createTable tableName="user">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create_product_table" author="yassin.aberkan">
+        <createTable tableName="products">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(255)"/>
+            <column name="brand" type="varchar(255)"/>
+            <column name="price" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_type" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_type" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image_url" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="logo_url" type="varchar(255)"/>
+            <column name="expired_date" type="DATE"/>
+            <column name="created_at" type="DATE"/>
+            <column name="updated_at" type="DATE"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="createHeatingProductTable" author="yassin.aberkan">
+        <createTable tableName="heatings">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="model" type="VARCHAR(255)"/>
+            <column name="power" type="DOUBLE"/>
+            <column name="pressure_max" type="DOUBLE"/>
+            <column name="temperature_max" type="DOUBLE"/>
+            <column name="height" type="INTEGER"/>
+            <column name="width" type="INTEGER"/>
+            <column name="depth" type="INTEGER"/>
+            <column name="created_at" type="DATE"/>
+            <column name="updated_at" type="DATE"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="insertProduct" author="yassin.aberkan">
+        <loadData
+                encoding="UTF-8"
+                file="classpath:db/data/products.csv"
+                separator=";"
+                tableName="products">
+            <column name="id" type="BIGINT"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="brand" type="VARCHAR(255)"/>
+            <column name="price" type="DOUBLE"/>
+            <column name="product_type" type="VARCHAR(255)"/>
+            <column name="category_type" type="VARCHAR(255)"/>
+            <column name="image_url" type="VARCHAR(255)"/>
+            <column name="logo_url" type="VARCHAR(255)"/>
+            <column name="expired_date" type="DATE"/>
+            <column name="created_at" type="DATE"/>
+            <column name="updated_at" type="DATE"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet id="insertHeatingProduct" author="yassin.aberkan">
+        <loadData
+                encoding="UTF-8"
+                file="classpath:db/data/heatings.csv"
+                separator=";"
+                tableName="heatings">
+            <column name="id" type="BIGINT"/>
+            <column name="model" type="VARCHAR(255)"/>
+            <column name="power" type="DOUBLE"/>
+            <column name="pressure_max" type="DOUBLE"/>
+            <column name="temperature_max" type="DOUBLE"/>
+            <column name="height" type="INTEGER"/>
+            <column name="width" type="INTEGER"/>
+            <column name="depth" type="INTEGER"/>
+            <column name="created_at" type="DATE"/>
+            <column name="updated_at" type="DATE"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

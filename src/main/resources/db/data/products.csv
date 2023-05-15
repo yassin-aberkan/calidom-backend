@@ -1,0 +1,5 @@
+id;name;description;brand;price;product_type;category_type;image_url;logo_url;expired_date;created_at;updated_at
+1;Ecotec pro;Gaz condensation mixte;Vaillant;760.00;GAZ_WALL_HEATING;HEATING;https://i.postimg.cc/rs56SLyQ/heating1.jpg;https://i.postimg.cc/FRV8Lckh/vaillant-logo.png;2039-12-31;2023-04-20;2023-04-20
+2;Ecotec Plus;Gaz condensation solo;Vaillant;1295.00;GAZ_WALL_HEATING;HEATING;https://i.postimg.cc/bJh4rLJ6/heating2.jpg;https://i.postimg.cc/FRV8Lckh/vaillant-logo.png;2039-12-31;2023-04-20;2023-04-20
+3;Themafast;Gaz condensation mixte;Bulex;955.00;GAZ_WALL_HEATING;HEATING;https://i.postimg.cc/rs56SLyQ/heating1.jpg;https://i.postimg.cc/hGxHKNSz/bulex-logo.jpg;2039-12-31;2023-04-20;2023-04-20
+4;Isotwin;Gaz condensation mixte;Bulex;910;GAZ_WALL_HEATING;HEATING;https://i.postimg.cc/bJh4rLJ6/heating2.jpg;https://i.postimg.cc/hGxHKNSz/bulex-logo.jpg;2039-12-31;2023-04-20;2023-04-20

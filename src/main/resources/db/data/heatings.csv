@@ -1,0 +1,5 @@
+id;model;power;pressure_max;temperature_max;height;width;depth;created_at;updated_at
+1;Ecotec pro;760.00;10.0;70.0;800;600;300;2023-04-25;2023-04-25
+2;Ecotec Plus;1295.00;12.0;80.0;850;700;350;2023-04-25;2023-04-25
+3;Themafast;955.00;8.0;65.0;900;750;400;2023-04-25;2023-04-25
+4;Isotwin;300.00;10.0;80.0;582;893;470;2023-04-25;2023-04-25
