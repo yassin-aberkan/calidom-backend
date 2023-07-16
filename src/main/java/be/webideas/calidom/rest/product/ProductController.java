@@ -3,9 +3,7 @@ package be.webideas.calidom.rest.product;
 
 import be.webideas.calidom.model.CategoryType;
 import be.webideas.calidom.model.ProductType;
-import be.webideas.calidom.model.product.HeatingProduct;
 import be.webideas.calidom.model.product.Product;
-import be.webideas.calidom.service.product.HeatingProductService;
 import be.webideas.calidom.service.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

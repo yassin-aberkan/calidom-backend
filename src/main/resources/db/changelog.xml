@@ -2,6 +2,41 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <changeSet id="create_country_table" author="yassin.aberkan">
+        <createTable tableName="country">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(150)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create_address_table" author="yassin.aberkan">
+        <createTable tableName="address">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="street" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="postal_code" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country_id" type="BIGINT">
+                <constraints nullable="true"
+                             foreignKeyName="fk_address_country"
+                             referencedTableName="country"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+    </changeSet>
+
     <changeSet id="create_user_table" author="yassin.aberkan">
         <createTable tableName="user">
             <column name="id" type="BIGINT" autoIncrement="true">
@@ -19,8 +54,20 @@
             <column name="password" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="role" type="VARCHAR(255)">
-                <constraints nullable="true"/>
+            <column name="role" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="main_address_id" type="BIGINT">
+                <constraints nullable="true"
+                             foreignKeyName="fk_user_address"
+                             referencedTableName="address"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="date_birth" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="gender" type="VARCHAR(20)">
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -52,6 +99,25 @@
             <column name="created_at" type="DATE"/>
             <column name="updated_at" type="DATE"/>
         </createTable>
+    </changeSet>
+
+    <changeSet id="create_product_descriptions_table" author="yassin.aberkan">
+        <createTable tableName="product_descriptions">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="language_code" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addUniqueConstraint tableName="product_descriptions" columnNames="product_id, language_code" constraintName="UK_product_descriptions"/>
     </changeSet>
 
     <changeSet id="createHeatingProductTable" author="yassin.aberkan">
@@ -109,6 +175,35 @@
             <column name="created_at" type="DATE"/>
             <column name="updated_at" type="DATE"/>
         </loadData>
+    </changeSet>
+
+    <changeSet id="insertProductDescription" author="yassin.aberkan">
+        <loadData
+                encoding="UTF-8"
+                file="classpath:db/data/productDescriptions.csv"
+                separator=","
+                tableName="product_descriptions">
+            <column name="product_id" type="BIGINT"/>
+            <column name="language_code" type="VARCHAR(10)"/>
+            <column name="description" type="VARCHAR(1000)"/>
+        </loadData>
+    </changeSet>
+
+    <changeSet id="insert_countries" author="yassin.aberkan">
+        <insert tableName="country">
+            <column name="id" value="1"/>
+            <column name="name" value="Belgium"/>
+        </insert>
+
+        <insert tableName="country">
+            <column name="id" value="2"/>
+            <column name="name" value="Luxemburg"/>
+        </insert>
+
+        <insert tableName="country">
+            <column name="id" value="3"/>
+            <column name="name" value="France"/>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>

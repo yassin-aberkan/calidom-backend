@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.Map;
 
 @Data
 @Builder
@@ -26,7 +27,11 @@ public class Product {
     @Column(nullable = false)
     private String name;
 
-    private String description;
+    @ElementCollection
+    @CollectionTable(name = "product_descriptions", joinColumns = @JoinColumn(name = "product_id"))
+    @MapKeyColumn(name = "language_code")
+    @Column(name = "description")
+    private Map<String, String> descriptions;
 
     private String brand;
 

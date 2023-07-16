@@ -1,0 +1,13 @@
+id,product_id,language_code,description
+1,1,FR,Gaz condensation mixte
+2,1,NL,Gaz condensation mixte
+3,1,EN,Gaz condensation mixte
+4,2,FR,Gaz condensation solo
+5,2,NL,Gaz condensation solo
+6,2,EN,Gaz condensation solo
+7,3,FR,Gaz condensation mixte
+8,3,NL,Gaz condensation mixte
+9,3,EN,Gaz condensation mixte
+10,4,FR,Gaz condensation mixte
+11,4,NL,Gaz condensation mixte
+12,4,EN,Gaz condensation mixte
